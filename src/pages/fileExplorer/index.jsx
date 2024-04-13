@@ -4,11 +4,11 @@ import { explorer } from './data/folderData'
 
 const FileExplorer = () => {
     const [explorerData, setExplorerData] = useState(explorer)
-  return (
-    <>
-    <Folder explorer={explorerData}/>
-    </>
-  )
+    return (
+        <>
+            <Folder explorer={explorerData} />
+        </>
+    )
 }
 
 export default FileExplorer
