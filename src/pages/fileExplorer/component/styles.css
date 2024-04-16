@@ -1,0 +1,24 @@
+.folder{
+    border: 1px solid grey;
+    padding: 4px;
+    cursor: pointer;
+    background-color: lightyellow;
+    transition: all ease-in 2ms;
+    display: flex;
+    justify-content: space-between;
+}
+.folder:hover{
+    background-color: black;
+    color: white;
+}
+.btnDiv{
+    display: flex;
+    gap: 2px;
+
+}
+.inputContainer{
+    gap:4px;
+    border: 1px solid grey;
+    padding: 4px;
+    cursor: pointer;
+}

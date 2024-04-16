@@ -1,26 +1,71 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
+import "./styles.css"
 
 function Folder({ explorer }) {
-  console.log('explorer->', explorer)
+  console.log("explorer->", explorer)
   const [expand, setExpand] = useState(false)
+  const [newFileOrFold, setNewFileOrFold] = useState({
+    isFolder: false,
+    visible: false
+  })
 
+  const handleNewF = (e, val) => {
+    e.stopPropagation()
+    setNewFileOrFold({
+      visible: true,
+      isFolder: val
+    })
+    setExpand(true)
+  }
+
+  const onAddNew = (e) => {
+    if (e.keyCode == 13 && e.target.value) {
+      setNewFileOrFold({
+        ...newFileOrFold,
+        visible: false
+      })
+    }
+  }
   if (explorer?.isFolder) {
-    return (<div>
+    return (
       <div>
-        <span 
-        onClick={() => {
-          setExpand(!expand)
-        }}
-        >📁 {explorer?.name} {expand ? '' : '>'}</span> 
+        <div
+          className="folder"
+          onClick={() => {
+            setExpand(!expand)
+          }}
+        >
+          <span>📁 {explorer?.name}</span>
+          <div className="btnDiv">
+            <button onClick={(e) => handleNewF(e, true)}>Folder +</button>
+            <button onClick={(e) => handleNewF(e, false)}>File +</button>
+          </div>
+        </div>
+        <div style={{ display: expand ? "block" : "none", paddingLeft: 10, cursor: "pointer" }}>
+          {newFileOrFold?.visible ? (
+            <div className="inputContainer">
+              <span>{newFileOrFold?.isFolder ? "📁 " : "📄 "}</span>
+              <input
+                type="text"
+                className="inputContainer__input"
+                onBlur={() => setNewFileOrFold({ ...newFileOrFold, visible: false })}
+                autoFocus
+                onKeyDown={onAddNew}
+              />
+            </div>
+          ) : null}
+          {explorer?.items?.map((exp) => {
+            return <Folder explorer={exp} />
+          })}
+        </div>
       </div>
-      <div style={{display: expand ? 'block' : 'none', paddingLeft: 10}}>
-        {explorer?.items?.map((exp) => {
-          return <Folder explorer={exp}/>
-        })}
-      </div>
-    </div>)
+    )
   } else {
-    return <div>📄 <span>{explorer?.name}</span></div>
+    return (
+      <div>
+        📄 <span>{explorer?.name}</span>
+      </div>
+    )
   }
 }
 
