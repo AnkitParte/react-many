@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import "./styles.css"
 
-function Folder({ explorer }) {
-  console.log("explorer->", explorer)
+function Folder({ handleInsertNode, explorer }) {
+  // console.log("explorer->", explorer)
   const [expand, setExpand] = useState(false)
   const [newFileOrFold, setNewFileOrFold] = useState({
     isFolder: false,
@@ -20,6 +20,7 @@ function Folder({ explorer }) {
 
   const onAddNew = (e) => {
     if (e.keyCode == 13 && e.target.value) {
+      handleInsertNode(explorer.id, e.target.value, newFileOrFold?.isFolder)
       setNewFileOrFold({
         ...newFileOrFold,
         visible: false
@@ -55,7 +56,7 @@ function Folder({ explorer }) {
             </div>
           ) : null}
           {explorer?.items?.map((exp) => {
-            return <Folder explorer={exp} />
+            return <Folder handleInsertNode={handleInsertNode} explorer={exp} />
           })}
         </div>
       </div>
