@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import "./pswdGen.css"
 import usePasswordGen from "./hooks/usePasswordGen"
+import CommonCheckbox from "./components/CommonCheckbox"
+import { checkBoxList, getPasswordStrength } from "./utils"
+import CommonButton from "./components/CommonButton"
 
 const PasswordGenerator = () => {
   let [passwordLen, setPasswordLen] = useState(0)
@@ -12,6 +15,7 @@ const PasswordGenerator = () => {
     includeNumbers: false,
     includeSymbols: false
   })
+
   //!custom hooks to generate password
   let { generatedPassword, passwordErrorMessage, handleGeneratePassword } = usePasswordGen()
 
@@ -25,21 +29,9 @@ const PasswordGenerator = () => {
   //! To handle password length
   const handlePasswordLen = (e) => {
     let { value } = e.target
-    getPasswordStrength(value)
+    let passwordStan = getPasswordStrength(value)
+    setPasswordStan(passwordStan)
     setPasswordLen(value)
-  }
-
-  //! To provide standard of password based on length
-  const getPasswordStrength = (psLen) => {
-    if (psLen >= 16) {
-      setPasswordStan({ quality: "Very Strong", color: "lightblue" })
-    } else if (psLen >= 12) {
-      setPasswordStan({ quality: "Strong", color: "lightgreen" })
-    } else if (psLen >= 8) {
-      setPasswordStan({ quality: "Medium", color: "gold" })
-    } else {
-      setPasswordStan({ quality: "Poor", color: "red" })
-    }
   }
 
   //! Password generator handler
@@ -62,13 +54,12 @@ const PasswordGenerator = () => {
         <div className="d-flex generatedPswdDiv">
           <div>{generatedPassword}</div>
           <div>
-            <button
+            <CommonButton
+              text={copyState ? "Copied" : "Copy"}
               onClick={() => {
                 copyToClipboard(generatedPassword)
               }}
-            >
-              {copyState ? "Copied" : "Copy"}
-            </button>
+            />
           </div>
         </div>
       )}
@@ -80,22 +71,9 @@ const PasswordGenerator = () => {
         <input type="range" style={{ width: "100%" }} value={passwordLen} min={10} max={20} onChange={handlePasswordLen} />
       </div>
       <div className="gridLayout">
-        <div>
-          <input type="checkbox" name="upperCase" onChange={handlePasswordParameters} />
-          <span>Include Uppercase Letters</span>
-        </div>
-        <div>
-          <input type="checkbox" name="lowerCase" onChange={handlePasswordParameters} />
-          <span>Include Lowercase Letters</span>
-        </div>
-        <div>
-          <input type="checkbox" name="includeNumbers" onChange={handlePasswordParameters} />
-          <span>Include Numbers</span>
-        </div>
-        <div>
-          <input type="checkbox" name="includeSymbols" onChange={handlePasswordParameters} />
-          <span>Include Symbols</span>
-        </div>
+        {checkBoxList?.map((checkBoxItem, idx) => {
+          return <CommonCheckbox key={idx} title={checkBoxItem?.title} name={checkBoxItem?.name} onChange={handlePasswordParameters} />
+        })}
       </div>
       {generatedPassword && (
         <div className="d-flex pswdStandardDiv">
@@ -105,9 +83,7 @@ const PasswordGenerator = () => {
       )}
       {passwordErrorMessage && <div style={{ color: "red", fontSize: "14px", marginTop: "5px" }}>{passwordErrorMessage}</div>}
       <div>
-        <button className="genPswdBtn" onClick={handlePasswordGeneration}>
-          Generate Password
-        </button>
+        <CommonButton text={"Generate Password"} onClick={handlePasswordGeneration} customClass={"genPswdBtn"} />
       </div>
     </div>
   )
