@@ -4,6 +4,7 @@ import usePasswordGen from "./hooks/usePasswordGen"
 import CommonCheckbox from "./components/CommonCheckbox"
 import { checkBoxList, getPasswordStrength } from "./utils"
 import CommonButton from "./components/CommonButton"
+import PasswordStandard from "./components/PasswordStandard"
 
 const PasswordGenerator = () => {
   let [passwordLen, setPasswordLen] = useState(0)
@@ -68,19 +69,14 @@ const PasswordGenerator = () => {
         <div>{passwordLen}</div>
       </div>
       <div style={{ width: "100%", marginTop: "10px" }}>
-        <input type="range" style={{ width: "100%" }} value={passwordLen} min={10} max={20} onChange={handlePasswordLen} />
+        <input type="range" style={{ width: "100%" }} value={passwordLen} min={0} max={20} onChange={handlePasswordLen} />
       </div>
       <div className="gridLayout">
         {checkBoxList?.map((checkBoxItem, idx) => {
           return <CommonCheckbox key={idx} title={checkBoxItem?.title} name={checkBoxItem?.name} onChange={handlePasswordParameters} />
         })}
       </div>
-      {generatedPassword && (
-        <div className="d-flex pswdStandardDiv">
-          <div>Password Standard</div>
-          <div style={{ color: passwordStan?.color }}>{passwordStan?.quality}</div>
-        </div>
-      )}
+      {generatedPassword && <PasswordStandard customClass={"d-flex pswdStandardDiv"} passwordStan={passwordStan} />}
       {passwordErrorMessage && <div style={{ color: "red", fontSize: "14px", marginTop: "5px" }}>{passwordErrorMessage}</div>}
       <div>
         <CommonButton text={"Generate Password"} onClick={handlePasswordGeneration} customClass={"genPswdBtn"} />
