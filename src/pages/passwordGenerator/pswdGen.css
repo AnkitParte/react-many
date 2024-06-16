@@ -1,0 +1,87 @@
+.pswdMain {
+  width: 40%;
+  margin: auto;
+  background-color: navy;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.generatedPswdDiv {
+}
+.generatedPswdDiv > div > button {
+  background-color: darkblue;
+  color: white;
+  border: 2px solid lightseagreen;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  margin: 10px 0px;
+}
+
+.genPswdBtn {
+  width: 100%;
+  background-color: lightseagreen;
+  color: black;
+  border-radius: 6px;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.pswdStandardDiv {
+}
+.pswdStandardDiv > div:nth-child(2) {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.characterLenDiv {
+  margin-top: 12px;
+}
+
+/* For devices with a viewport width of 600px or less */
+@media only screen and (max-width: 450px) {
+  .pswdMain {
+    width: 90%;
+  }
+  .gridLayout {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* For devices with a viewport width between 601px and 1024px */
+@media only screen and (min-width: 451px) and (max-width: 600px) {
+  .pswdMain {
+    width: 80%;
+  }
+  .gridLayout {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* For devices with a viewport width between 601px and 1024px */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .pswdMain {
+    width: 70%;
+  }
+}
+
+/* For devices with a viewport width between 601px and 1024px */
+@media only screen and (min-width: 1025px) and (max-width: 1400px) {
+  .pswdMain {
+    width: 60%;
+  }
+}
