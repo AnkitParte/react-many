@@ -1,0 +1,29 @@
+.progressParentDiv {
+  /* display: flex;
+  align-items: center; */
+  /* background-color: rgb(78, 236, 78); */
+  color: black;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 1px solid black;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  height: 20px;
+  position: relative;
+}
+.progressParentDiv span {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+  z-index: 2;
+}
+
+.progressParentDiv div {
+  height: 100%;
+  background-color: rgb(78, 236, 78);
+  transition: width 0.2s ease-in-out;
+}
