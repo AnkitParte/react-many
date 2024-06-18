@@ -6,6 +6,8 @@
   gap: 10px;
 }
 .mainGridDiv div {
-  text-align: center;
-  padding: 50px;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

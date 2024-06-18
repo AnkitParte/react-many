@@ -29,7 +29,7 @@ const Grid3By3 = () => {
         setIsDeActive(false)
         setOrder([])
       }
-    }, 300)
+    }, 400)
   }
   useEffect(() => {
     if (order.length == 8) deActive()
@@ -41,18 +41,24 @@ const Grid3By3 = () => {
         return (
           <>
             {it?.map((_, j) => {
+              let [x, setX] = useState("")
               return (
                 <div
                   style={{
                     background: config[i][j] === 1 ? "green" : "white",
                     border: i == 1 && j == 1 ? "" : "2px solid black",
-                    cursor: isDeActive || config[i][j] === 1 ? "not-allowed" : "pointer"
+                    cursor: isDeActive || config[i][j] === 1 ? "not-allowed" : "pointer",
+                    boxSizing: "border-box",
+                    transition: "0.3s all ease-in"
                   }}
                   onClick={() => {
                     handleBoxSelect(i, j, 1)
+                    setX(order.length + 1)
                   }}
                   disabled={isDeActive || config[i][j] === 1}
-                ></div>
+                >
+                  {(config[i][j] === 1 && x) || ""}
+                </div>
               )
             })}
           </>
