@@ -1,0 +1,11 @@
+.mainGridDiv {
+  width: 40%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.mainGridDiv div {
+  text-align: center;
+  padding: 50px;
+}

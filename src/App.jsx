@@ -5,6 +5,7 @@ import FileExplorer from "./pages/fileExplorer"
 import Pagination from "./pages/pagination"
 import PasswordGenerator from "./pages/passwordGenerator"
 import ProgressBar from "./pages/progressBar"
+import Grid3By3 from "./pages/grid3By3"
 
 function App() {
   const [percentVal, setPercentVal] = useState(0)
@@ -20,7 +21,8 @@ function App() {
       {/* <Pagination /> */}
       {/* <EmiCalculator /> */}
       {/* <PasswordGenerator /> */}
-      <ProgressBar progressVal={percentVal} />
+      {/* <ProgressBar progressVal={percentVal} /> */}
+      <Grid3By3 />
     </>
   )
 }
