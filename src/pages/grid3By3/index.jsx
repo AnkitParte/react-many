@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./gridStyles.css"
 
 let configDef = [
@@ -15,7 +15,6 @@ const Grid3By3 = () => {
     let tempGrid = [...config]
     tempGrid[i][j] = val
     if (val) setOrder([...order, [i, j]])
-
     setConfig([...tempGrid])
   }
   const deActive = () => {
