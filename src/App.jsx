@@ -6,6 +6,7 @@ import Pagination from "./pages/pagination"
 import PasswordGenerator from "./pages/passwordGenerator"
 import ProgressBar from "./pages/progressBar"
 import Grid3By3 from "./pages/grid3By3"
+import CustomUserMemo from "./pages/customUseMemo"
 
 function App() {
   const [percentVal, setPercentVal] = useState(0)
@@ -22,7 +23,8 @@ function App() {
       {/* <EmiCalculator /> */}
       {/* <PasswordGenerator /> */}
       {/* <ProgressBar progressVal={percentVal} /> */}
-      <Grid3By3 />
+      {/* <Grid3By3 /> */}
+      <CustomUserMemo />
     </>
   )
 }
