@@ -7,6 +7,7 @@ import PasswordGenerator from "./pages/passwordGenerator"
 import ProgressBar from "./pages/progressBar"
 import Grid3By3 from "./pages/grid3By3"
 import CustomUserMemo from "./pages/customUseMemo"
+import CustomUseEffect from "./pages/customUseEffect"
 
 function App() {
   const [percentVal, setPercentVal] = useState(0)
@@ -24,7 +25,8 @@ function App() {
       {/* <PasswordGenerator /> */}
       {/* <ProgressBar progressVal={percentVal} /> */}
       {/* <Grid3By3 /> */}
-      <CustomUserMemo />
+      {/* <CustomUserMemo /> */}
+      <CustomUseEffect />
     </>
   )
 }
