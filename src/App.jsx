@@ -8,6 +8,7 @@ import ProgressBar from "./pages/progressBar"
 import Grid3By3 from "./pages/grid3By3"
 import CustomUserMemo from "./pages/customUseMemo"
 import CustomUseEffect from "./pages/customUseEffect"
+import ThemeBox from "./pages/ThemeView"
 
 function App() {
   const [percentVal, setPercentVal] = useState(0)
@@ -26,7 +27,8 @@ function App() {
       {/* <ProgressBar progressVal={percentVal} /> */}
       {/* <Grid3By3 /> */}
       {/* <CustomUserMemo /> */}
-      <CustomUseEffect />
+      {/* <CustomUseEffect /> */}
+      <ThemeBox />
     </>
   )
 }
