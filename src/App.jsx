@@ -9,6 +9,7 @@ import Grid3By3 from "./pages/grid3By3"
 import CustomUserMemo from "./pages/customUseMemo"
 import CustomUseEffect from "./pages/customUseEffect"
 import ThemeBox from "./pages/ThemeView"
+import BreadCrumb from "./pages/BreadCrumb"
 
 function App() {
   const [percentVal, setPercentVal] = useState(0)
@@ -28,7 +29,8 @@ function App() {
       {/* <Grid3By3 /> */}
       {/* <CustomUserMemo /> */}
       {/* <CustomUseEffect /> */}
-      <ThemeBox />
+      {/* <ThemeBox /> */}
+      <BreadCrumb />
     </>
   )
 }
