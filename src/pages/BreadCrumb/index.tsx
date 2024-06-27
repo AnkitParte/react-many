@@ -4,7 +4,7 @@ import Home from "./components/Home"
 import ProductList from "./components/ProductList"
 import ProductDetails from "./components/ProductDetails"
 
-const BreadCrumb = () => {
+const BreadCrumbMain = () => {
   return (
     <div>
       <div>Bread Crumb</div>
@@ -17,4 +17,4 @@ const BreadCrumb = () => {
   )
 }
 
-export default BreadCrumb
+export default BreadCrumbMain

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import BreadCrumb from "./BreadCrumb"
 
 const ProductList = () => {
   const [productsList, setProductsList] = useState([])
@@ -17,6 +18,7 @@ const ProductList = () => {
   return (
     <div>
       <h3>Product List</h3>
+      <BreadCrumb />
       <div>This is Product List page</div>
       <Link to={"/"}>
         <button>Back to Home</button>

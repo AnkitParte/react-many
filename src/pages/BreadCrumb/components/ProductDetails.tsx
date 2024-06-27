@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import BreadCrumb from "./BreadCrumb"
 
 const ProductDetails = () => {
   let { id } = useParams()
@@ -16,10 +17,11 @@ const ProductDetails = () => {
   useEffect(() => {
     getProducts()
   }, [])
-  console.log("singleProd", singleProd)
+  //   console.log("singleProd", singleProd)
   return (
     <div>
       <h3>Product Details</h3>
+      <BreadCrumb />
       {/* <div>This is Product Details page</div> */}
       <Link to={"/products"}>
         <button>Back to Product List</button>
