@@ -10,6 +10,7 @@ import CustomUserMemo from "./pages/customUseMemo"
 import CustomUseEffect from "./pages/customUseEffect"
 import ThemeBox from "./pages/ThemeView"
 import BreadCrumbMain from "./pages/BreadCrumb"
+import PhoneOtpLoginBox from "./pages/PhoneOtpLogin"
 
 function App() {
   const [percentVal, setPercentVal] = useState(0)
@@ -30,7 +31,8 @@ function App() {
       {/* <CustomUserMemo /> */}
       {/* <CustomUseEffect /> */}
       {/* <ThemeBox /> */}
-      <BreadCrumbMain />
+      {/* <BreadCrumbMain /> */}
+      <PhoneOtpLoginBox />
     </>
   )
 }
